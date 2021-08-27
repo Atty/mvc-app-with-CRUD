@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<a href="/">Назад</a>
+
+
+<form method="post" action="getAll">
+    <button type="submit">Показать все данные</button>
+</form>
+
+
+<h2>Все ценные бумаги с их историями</h2>
+<br/>
+<br/>
+
+<table>
+    <tr th:each="p: ${pivot}">
+        <td th:text="${p.sec_id}"></td>
+        <td th:text="${p.reg_number}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.emitent_title}"></td>
+        <td th:text="${p.trade_date}"></td>
+        <td th:text="${p.num_trades}"></td>
+        <td th:text="${p.open}"></td>
+        <td th:text="${p.close}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

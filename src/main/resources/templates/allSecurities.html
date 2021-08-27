@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<a href="/">Назад</a>
+<br/>
+<form method="post" action="addSecurities">
+    <p>Добавление Ценной бумаги</p>
+    <label for="1">id</label>
+    <input type="text" name="id" id="1" placeholder="id">
+    <label for="2">sec_id</label>
+    <input type="text" name="sec_id" id="2" placeholder="sec_id">
+    <label for="3">reg_number</label>
+    <input type="text" name="reg_number" id="3" placeholder="reg_number">
+    <label for="4">name</label>
+    <input type="text" name="name" id="4" placeholder="name">
+    <label for="5">emitent_title</label>
+    <input type="text" name="emitent_title" id="5" placeholder="emitent_title">
+    <button type="submit">Добавить</button>
+</form>
+<br/>
+<br/>
+<form method="post" action="getSecurities">
+    <label for="get">Получение Ценной бумаги по id</label>
+    <input type="text" name="id" id="get" placeholder="Введите id ценной бумаги">
+    <button type="submit">Получить</button>
+</form>
+<a th:text="${getSecurities}"></a>
+<br/>
+<br/>
+<form method="post" action="updateSecurities">
+    <p>Обновление данных о Ценной бумаге</p>
+    <label for="11">id</label>
+    <input type="text" name="id" id="11" placeholder="id">
+    <label for="33">reg_number</label>
+    <input type="text" name="reg_number" id="33" placeholder="reg_number">
+    <label for="44">name</label>
+    <input type="text" name="name" id="44" placeholder="name">
+    <label for="55">emitent_title</label>
+    <input type="text" name="emitent_title" id="55" placeholder="emitent_title">
+    <button type="submit">Обновить</button>
+</form>
+<br/>
+<br/>
+<form method="post" action="deleteSecurities">
+    <label for="delete">Удаление Ценной бумаги по id</label>
+    <input type="text" name="id" id="delete" placeholder="Введите id ценной бумаги">
+    <button type="submit">Удалить</button>
+</form>
+
+<br/>
+<br/>
+<form method="post" action="getAllSecurities">
+    <label>Получение всех Ценных бумаг</label>
+    <button type="submit">Получить</button>
+</form>
+<br/>
+<br/>
+<h2>Все данные о Ценных бумагах</h2>
+<br/>
+<br/>
+<table>
+    <tr th:each="securities: ${allSecurities}">
+        <td th:text="${securities.id}"></td>
+        <td th:text="${securities.sec_id}"></td>
+        <td th:text="${securities.reg_number}"></td>
+        <td th:text="${securities.name}"></td>
+        <td th:text="${securities.emitent_title}"></td>
+    </tr>
+</table>
+</body>
+</html>

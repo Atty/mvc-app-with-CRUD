@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<a href="/">Назад</a>
+<br/>
+<form method="post" action="addHistory">
+    <a>Добавление Истории ценной бумаги</a>
+    <label for="1">sec_id</label>
+    <input type="text" name="sec_id" id="1" placeholder="sec_id">
+    <label for="2">trade_date</label>
+    <input type="text" name="trade_date" id="2" placeholder="trade_date">
+    <label for="3">num_trades</label>
+    <input type="text" name="num_trades" id="3" placeholder="num_trades">
+    <label for="4">open</label>
+    <input type="text" name="open" id="4" placeholder="open">
+    <label for="5">close</label>
+    <input type="text" name="close" id="5" placeholder="close">
+    <button type="submit">Добавить</button>
+</form>
+<br/>
+<br/>
+<form method="post" action="getHistory">
+    <label for="get">Получение Ценной бумаги по id</label>
+    <input type="text" name="sec_id" id="get" placeholder="Введите sec_id ценной бумаги">
+    <button type="submit">Получить</button>
+</form>
+<table>
+    <tr th:each="history: ${getHistory}">
+        <td th:text="${history.sec_id}"></td>
+        <td th:text="${history.trade_date}"></td>
+        <td th:text="${history.num_trades}"></td>
+        <td th:text="${history.open}"></td>
+        <td th:text="${history.close}"></td>
+    </tr>
+</table>
+<br/>
+<br/>
+<form method="post" action="deleteHistory">
+    <label for="11">Удаление Истории </label>
+    <input type="text" name="sec_id" id="11" placeholder="sec_id">
+    <label for="22">id</label>
+    <input type="text" name="trade_date" id="22" placeholder="trade_date">
+    <label for="33">id</label>
+    <input type="text" name="num_trades" id="33" placeholder="num_trades">
+    <button type="submit">Удалить</button>
+</form>
+<br/>
+<br/>
+<form method="post" action="getAllHistory">
+    <label>Получение всей Истории ценных бумаг</label>
+    <button type="submit">Получить</button>
+</form>
+<br/>
+<br/>
+<h2>Все данные об Истории ценных бумаг</h2>
+<br/>
+<br/>
+<table>
+    <tr th:each="history: ${allHistory}">
+        <td th:text="${history.sec_id}"></td>
+        <td th:text="${history.trade_date}"></td>
+        <td th:text="${history.num_trades}"></td>
+        <td th:text="${history.open}"></td>
+        <td th:text="${history.close}"></td>
+    </tr>
+</table>
+</body>
+</html>
